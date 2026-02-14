@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+
+:root {
+    --negro: #0a0a0a;
+    --blanco-hueso: #f5f5dc;
+    --verde-apple: #a3d977;
+    --gris-oscuro: #1a1a1a;
+    --gris-medio: #333;
+}
+
+/* RESET Y ESTRUCTURA BASE */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    font-style: normal;
+    color: #f5f5f5;
+    background-color: var(--gris-oscuro);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, .hero-title {
+    font-family: "Playfair Display", serif;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+/* ========== HEADER Y NAV ========== */
+header {
+    background-color: var(--negro);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--gris-oscuro);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    height: 70px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+#language-switcher {
+    display: flex;
+    gap: 8px;
+    padding: 10px 20px;
+    align-self: center;
+}
+
+#language-switcher button {
+    background: none;
+    border: 2px solid var(--gris-medio);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#language-switcher button:hover {
+    background-color: var(--verde-apple);
+    border-color: var(--verde-apple);
+    transform: scale(1.05);
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    display: block;
+    color: var(--blanco-hueso);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 15px 25px;
+    background-color: var(--negro);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin: 0 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+    border-bottom: none;
+}
+
+nav a:hover {
+    background-color: var(--gris-medio);
+    color: var(--verde-apple);
+}
+
+nav a.active-link {
+    background-color: var(--negro) !important;
+    color: var(--blanco-hueso) !important;
+    border-color: var(--verde-apple);
+    border-bottom: 3px solid var(--gris-oscuro);
+    margin-bottom: -3px;
+    font-weight: 700;
+}
+
+/* ========== MAIN Y SECCIONES ========== */
+main {
+    flex: 1;
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+main section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+main section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== SECCIÓN INICIO (Hero) ========== */
+#inicio {
+    text-align: center;
+    padding-top: 20px !important;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 20px;
+    min-height: auto;
+}
+
+.hero-logo {
+    max-width: 280px;
+    width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
+    transition: transform 0.3s ease;
+}
+
+.hero-logo:hover {
+    transform: scale(1.02);
+}
+
+#inicio p {
+    font-size: 1.3rem;
+    color: var(--verde-apple);
+}
+
+/* Importamos Crimson Text para una estética más prolija en los números */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+
+/* ========== SECCIÓN SHOWS (Cuadrados Perfectos) ========== */
+
+#lista-shows-proximos, 
+#lista-shows-pasados {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.show-card {
+    display: flex;
+    background-color: var(--blanco-hueso);
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 100px; /* Altura base */
+    transition: transform 0.2s ease;
+    border: none;
+}
+
+/* Hover solo para los próximos */
+#lista-shows-proximos .show-card:hover {
+    transform: scale(1.01);
+}
+
+/* EL CUADRADO DE LA FECHA (Uniforme lado x lado) */
+.show-date-box {
+    background-color: var(--verde-apple);
+    color: var(--negro);
+    /* Estas líneas aseguran el cuadrado perfecto */
+    height: 100px; 
+    width: 100px;
+    aspect-ratio: 1 / 1; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 5px;
+    /* Fuente formal similar a Georgia pero mejorada */
+    font-family: 'Crimson Text', serif; 
+    flex-shrink: 0; /* Evita que se aplaste */
+}
+
+.show-date-box span:first-child {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.show-date-box span.date-day-num {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.show-date-box span:last-child {
+    font-size: 0.85rem;
+}
+
+/* CONTENIDO */
+.show-content {
+    flex: 1;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--negro);
+    font-family: 'Crimson Text', serif;
+}
+
+.show-venue {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.show-city {
+    font-style: italic;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* SHOWS PASADOS (Sin hover y más apagados) */
+
+.show-card.pasado {
+    opacity: 0.5;
+    filter: grayscale(1);
+    cursor: default;
+    transform: none !important; /* Desactiva cualquier movimiento */
+}
+
+.show-card.pasado .show-date-box {
+    background-color: var(--gris-medio);
+    color: var(--gr);
+}
+
+/* BOTÓN */
+.show-actions {
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.btn-ticket {
+    padding: 8px 18px;
+    border: 2px solid var(--negro);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--negro);
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-family: 'Crimson Text', serif;
+    text-transform: uppercase;
+}
+/* ========== SECCIÓN CONTACTO ========== */
+#contacto {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#contacto h2 {
+    margin-bottom: 30px;
+    color: var(--blanco-hueso);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--blanco-hueso);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--gris-medio);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Georgia', serif;
+    background-color: var(--negro);
+    color: var(--blanco-hueso);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--verde-apple);
+}
+
+#btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--verde-apple);
+    color: var(--negro);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+#btn-enviar:hover {
+    background-color: var(--blanco-hueso);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(163, 217, 119, 0.3);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: var(--negro);
+    color: var(--blanco-hueso);
+    text-align: center;
+    padding: 20px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    header { flex-direction: column; align-items: stretch; }
+    #language-switcher { justify-content: center; padding: 15px 0; border-bottom: 1px solid var(--gris-medio); }
+    nav ul { flex-direction: column; width: 100%; }
+    nav a.active-link { border-left: 4px solid var(--verde-apple); margin-bottom: 0; }
+    
+    .show-card { min-height: 80px; }
+    .show-date-box { min-width: 85px; font-size: 0.8rem; }
+    .show-actions { display: none; } /* En celu ocultamos el botón para que no se apriete todo */
+}
