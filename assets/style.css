@@ -64,7 +64,7 @@ header {
     height: 70px;
     width: auto;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .header-logo:hover {
@@ -74,26 +74,25 @@ header {
 
 /*  Cambiar idioma */
 
-#language-switcher {
+#cambiar-idioma {
     display: flex;
     gap: 8px;
-    padding: 10px 20px;
     align-self: center;
 }
 
-#language-switcher button {
-    background: var(--gris-oscuro);
+#cambiar-idioma button {
+    background-color: var(--gris-oscuro) !important;
     border: 2px solid var(--gris-claro);
     font-size: 1.3rem;
     cursor: pointer;
-    padding: 5px 12px;
-    border-radius: 5px;
+    padding: 4px 10px;
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
-#language-switcher button:hover {
-    background-color: var(--gris-claro);
-    border-color: var(--verde);
+#cambiar-idioma button:hover {
+    background-color: var(--gris-claro) !important;
+    border-color: var(--gris-oscuro);
     transform: scale(1.05);
 }
 
@@ -121,7 +120,7 @@ nav a {
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 1.5px;
-    padding: 15px 25px;
+    padding: 12px 25px;
     background-color: var(--negro);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -141,8 +140,8 @@ nav a.active-link {
     background-color: var(--negro) !important;
     color: var(--blanco) !important;
     border-color: var(--verde);
-    border-bottom: 3px solid var(--negro);
-    margin-bottom: -2px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: 0;
     font-weight: 700;
 }
 
@@ -401,7 +400,7 @@ main section.active {
 
 #contacto h2 {
     margin-bottom: 30px;
-    color: var(--blanco);
+    color: var(--beige);
     text-align: center;
 }
 
@@ -413,7 +412,7 @@ main section.active {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--blanco);
+    color: var(--beige);
 }
 
 .form-group input, .form-group select, .form-group textarea {
@@ -424,7 +423,7 @@ main section.active {
     font-size: 1rem;
     font-family: 'Georgia', serif;
     background-color: var(--negro);
-    color: var(--blanco);
+    color: var(--beige);
     transition: border-color 0.3s ease;
 }
 
@@ -487,6 +486,7 @@ footer p {
 
 .redes a img:hover {
     transform: scale(1.1);
+    filter: drop-shadow(0 0 15px #a3d977);
 }
 
 /* Formato para dispositivos móviles */
