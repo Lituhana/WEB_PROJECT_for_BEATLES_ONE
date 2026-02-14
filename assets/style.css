@@ -1,16 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
 
+/* Creamos variables de color para toda la página web */
+
 :root {
     --negro: #0a0a0a;
     --blanco: #ffffff;
     --verde: #a3d977;
     --beige: #f0ead2;
-    --gris-oscuro: #333333;
-    --gris-claro: #6b6b6b;
+    --gris-oscuro: #252525;
+    --gris-claro: #a3a3a3;
 }
 
-/* RESET Y ESTRUCTURA BASE */
+/* Seteamos valores base */
 
 * {
     margin: 0;
@@ -27,7 +29,7 @@ body {
     font-family: 'Georgia', serif;
     font-style: normal;
     color: #f5f5f5;
-    background-color: var(--negro);
+    background-color: var(--gris-oscuro);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -39,9 +41,10 @@ h1, h2, .hero-title {
     letter-spacing: 1px;
 }
 
-/* ========== HEADER Y NAV ========== */
+/*  Encabezado y barra de navegación */
+
 header {
-    background-color: var(--negro);
+    background-color: var(--negro) !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,7 +52,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 3px solid var(--gris-oscuro);
+    border-bottom: 3px solid var(--gris-claro);
 }
 
 .header-left {
@@ -66,7 +69,10 @@ header {
 
 .header-logo:hover {
     transform: scale(1.05);
+    filter: drop-shadow(0 0 15px #a3d977);
 }
+
+/*  Cambiar idioma */
 
 #language-switcher {
     display: flex;
@@ -76,8 +82,8 @@ header {
 }
 
 #language-switcher button {
-    background: none;
-    border: 2px solid var(--gris-oscuro);
+    background: var(--gris-oscuro);
+    border: 2px solid var(--gris-claro);
     font-size: 1.3rem;
     cursor: pointer;
     padding: 5px 12px;
@@ -86,10 +92,12 @@ header {
 }
 
 #language-switcher button:hover {
-    background-color: var(--verde);
+    background-color: var(--gris-claro);
     border-color: var(--verde);
     transform: scale(1.05);
 }
+
+/*  Formato de las Pestañas */
 
 nav {
     flex: 1;
@@ -107,17 +115,17 @@ nav ul {
 
 nav a {
     display: block;
-    color: var(--blanco);
+    color: var(--beige);
     text-decoration: none;
     text-transform: uppercase;
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     padding: 15px 25px;
     background-color: var(--negro);
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    margin: 0 2px;
+    margin: 0 3px;
     transition: all 0.3s ease;
     position: relative;
     border: 2px solid transparent;
@@ -134,11 +142,12 @@ nav a.active-link {
     color: var(--blanco) !important;
     border-color: var(--verde);
     border-bottom: 3px solid var(--negro);
-    margin-bottom: -3px;
+    margin-bottom: -2px;
     font-weight: 700;
 }
 
-/* ========== MAIN Y SECCIONES ========== */
+/* Formato al Main */
+
 main {
     flex: 1;
     padding: 40px 5%;
@@ -161,32 +170,8 @@ main section.active {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ========== SECCIÓN NOSOTROS ========== */
-#nosotros {
-    text-align: center;
-}
+/* Formato para sección Inicio + Logo */
 
-#nosotros h1 {
-    margin-bottom: 30px;
-    color: var(--blanco);
-}
-
-#nosotros p {
-    margin-top: 30px;
-    color: var(--blanco);
-    font-size: 1.1rem;
-}
-
-#nosotros img {
-    max-width: 600px;
-    width: 90%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* ========== SECCIÓN INICIO (Hero) ========== */
 #inicio {
     text-align: center;
     padding-top: 20px !important;
@@ -209,27 +194,72 @@ main section.active {
     margin-bottom: 15px;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
     transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
 }
 
 .hero-logo:hover {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 15px rgba(163, 217, 119, 0.6));
+    filter: drop-shadow(0 0 15px #a3d977);
+}
+
+.container-logo img {
+    max-width: 280px;
+    width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.container-logo img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px #a3d977);
 }
 
 #inicio p {
     font-size: 1.3rem;
-    color: var(--verde);
+    color: var(--beige);
 }
 
-/* ========== SECCIÓN SHOWS (Cuadrados Perfectos) ========== */
+/* Formato para sección Nosotros */
 
-#shows h2, #shows h3 {
-    color: var(--blanco);
+#nosotros {
+    text-align: center;
+}
+
+#nosotros h1 {
+    margin-bottom: 30px;
+    color: var(--beige);
+}
+
+#nosotros h3 {
+    margin-top: 30px;
+    color: var(--beige);
+    font-size: 1.1rem;
+}
+
+#nosotros img {
+    max-width: 600px;
+    width: 90%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Formato para Shows */
+
+#shows h2 {
+    color: var(--beige);
     margin-bottom: 25px;
 }
 
-#lista-shows-proximos, 
-#lista-shows-pasados {
+ #shows h3 {
+    color: var(--gris-claro)
+ }
+
+#lista-shows-proximos, #lista-shows-pasados {
     list-style: none;
     padding: 0;
     display: flex;
@@ -240,7 +270,7 @@ main section.active {
 
 .show-card {
     display: flex;
-    background-color: var(--beige);
+    background-color: var(--beige) !important;
     border-radius: 8px;
     overflow: hidden;
     min-height: 100px;
@@ -248,20 +278,20 @@ main section.active {
     border: none;
 }
 
-/* Hover solo para los próximos */
+/* Hover próximos Shows */
+
 #lista-shows-proximos .show-card:hover {
     transform: scale(1.01);
 }
 
-/* EL CUADRADO DE LA FECHA (Uniforme lado x lado) */
+/* Fechas de los Shows */
+
 .show-date-box {
-    background-color: var(--verde);
-    color: var(--negro);
-    /* Estas líneas aseguran el cuadrado perfecto */
+    background-color: var(--verde) !important;
+    color: var(--negro) !important;
     height: 100px; 
     width: 100px;
     aspect-ratio: 1 / 1; 
-    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -271,9 +301,8 @@ main section.active {
     text-transform: uppercase;
     line-height: 1;
     padding: 5px;
-    /* Fuente formal similar a Georgia pero mejorada */
     font-family: 'Crimson Text', serif; 
-    flex-shrink: 0; /* Evita que se aplaste */
+    flex-shrink: 0;
 }
 
 .show-date-box span:first-child {
@@ -290,14 +319,13 @@ main section.active {
     font-size: 0.85rem;
 }
 
-/* CONTENIDO */
 .show-content {
     flex: 1;
     padding: 15px 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: var(--negro);
+    color: var(--negro) !important;
     font-family: 'Crimson Text', serif;
 }
 
@@ -305,15 +333,16 @@ main section.active {
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
+    color: var(--negro) !important;
 }
 
 .show-city {
     font-style: italic;
     font-size: 1rem;
-    color: #444;
+    color: #444 !important;
 }
 
-/* SHOWS PASADOS (Sin hover y más apagados) */
+/* Formato para Shows anteriores (Sacamos el hover + color grisáceo) */
 
 .show-card.pasado {
     opacity: 0.5;
@@ -335,7 +364,9 @@ main section.active {
     color: #444;
 }
 
-/* BOTÓN */
+/* Formato botón para Reservar */
+
+
 .show-actions {
     display: flex;
     align-items: center;
@@ -347,7 +378,7 @@ main section.active {
     border: 2px solid var(--negro);
     border-radius: 4px;
     text-decoration: none;
-    color: var(--negro);
+    color: var(--negro) !important;
     font-weight: 600;
     font-size: 0.85rem;
     font-family: 'Crimson Text', serif;
@@ -358,9 +389,11 @@ main section.active {
 
 .btn-ticket:hover {
     background-color: var(--negro);
-    color: var(--beige);
+    color: var(--beige) !important;
 }
-/* ========== SECCIÓN CONTACTO ========== */
+
+/* Formato para el forrmulario de Contacto */
+
 #contacto {
     max-width: 600px;
     margin: 0 auto;
@@ -383,9 +416,7 @@ main section.active {
     color: var(--blanco);
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+.form-group input, .form-group select, .form-group textarea {
     width: 100%;
     padding: 12px;
     border: 2px solid var(--gris-oscuro);
@@ -397,12 +428,12 @@ main section.active {
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     outline: none;
     border-color: var(--verde);
 }
+
+/* Formato para enviar el formulario de Contacto */
 
 #btn-enviar {
     width: 100%;
@@ -420,20 +451,22 @@ main section.active {
 }
 
 #btn-enviar:hover {
-    background-color: var(--blanco);
-    color: var(--negro);
+    background-color: var(--negro);
+    color: var(--beige);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(163, 217, 119, 0.3);
+    box-shadow: 0 5px 15px;
 }
 
-/* ========== FOOTER ========== */
+/* Formato del Pie de Página */
+
 footer {
-    background-color: var(--negro);
+    background-color: var(--negro) !important;
     color: var(--blanco);
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top: 3px solid var(--gris-claro);
 }
 
 footer p {
@@ -456,7 +489,8 @@ footer p {
     transform: scale(1.1);
 }
 
-/* ========== RESPONSIVE ========== */
+/* Formato para dispositivos móviles */
+
 @media (max-width: 768px) {
     header { flex-direction: column; align-items: stretch; }
     #language-switcher { justify-content: center; padding: 15px 0; border-bottom: 1px solid var(--gris-oscuro); }
@@ -465,7 +499,7 @@ footer p {
     
     .show-card { min-height: 80px; }
     .show-date-box { min-width: 85px; font-size: 0.8rem; }
-    .show-actions { display: none; } /* En celu ocultamos el botón para que no se apriete todo */
+    .show-actions { display: none; }
     
     footer { flex-direction: column; gap: 15px; }
     footer p { text-align: center; }
