@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatles One 🇺🇾</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <title> Beatles One 🇺🇾 </title>
+    <link rel="stylesheet" href="assets/style.css?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
 </head>
@@ -17,62 +17,69 @@
         </a>
     </div>
 
-    <nav>
+    <nav> 
+        <!-- Creamos la barra de navegación con pestañas -->
         <ul>
-            <li><a href="#inicio" data-section="nav-home">Inicio</a></li>
-            <li><a href="#bio" data-section="nav-bio">¿Quiénes somos?</a></li>
-            <li><a href="#shows" data-section="nav-shows">Próximos Shows</a></li>
-            <li><a href="#contacto" data-section="nav-contact">Contacto</a></li>
+            <li><a href="#inicio" data-section="inicio"> Inicio </a></li>
+            <li><a href="#nosotros" data-section="nosotros"> ¿Quiénes somos? </a></li>
+            <li><a href="#shows" data-section="shows"> Próximos Shows </a></li>
+            <li><a href="#contacto" data-section="contacto"> Contacto </a></li>
         </ul>
     </nav>
 
-    <div id="language-switcher">
+    <!-- Creamos un selector de idioma -->
+
+    <div id="cambiar-idioma"> 
         <button id="btn-es" title="Español">🇪🇸</button>
         <button id="btn-en" title="English">🇬🇧</button>
     </div>
 </header>
 
-    <main>
-<section id="inicio" class="active">
-    <div class="hero-container">
-        <img src="assets/img/Logo_BO.png" alt="Beatles One Logo" class="hero-logo">
-        <p data-section="hero-sub"> El tributo definitivo a los 4 de Liverpool </p>
-    </div>
-</section>
+<main> 
+    <!-- Detallamos que va dentro de cada seccion de la nav -->
 
-        <section id="bio">
-            <h1 data-section="bio-title"> Beatles One - El tributo a The Beatles de origen Uruguayo </h1>
-            <p data-section="bio-subtitle"> Finalistas de la Beatleweek en The Cavern Club de BS AS - <b>2025</b> </p>
+ <section id="inicio" class="active">
+    <div class="container-logo">
+        <img src="assets/img/Logo_BO.png" alt="Beatles One Logo" class="container-logo">
+        <p data-section="logo-sub"> El tributo definitivo a los 4 de Liverpool </p>
+    </div>
+  </section>
+
+        <section id="nosotros">
+            <h1 data-section="nosotros-titulo"> Beatles One - El tributo a The Beatles de origen Uruguayo </h1>
+            <h3 data-section="nosotros-subtitulo"> Finalistas de la Beatleweek en The Cavern Club de BS AS - <b>2025</b> </h3>
         </section>
 
         <section id="shows">
-            <h2 data-section="shows-title"> Próximos Shows </h2>
+            <h2 data-section="shows-titulo"> Próximos Shows </h2>
             <ul id="lista-shows-proximos"></ul>
 
-            <h3 data-section="past-shows-title"> Shows Anteriores </h3>
+            <h3 data-section="shows-pasados-titulo"> Shows Anteriores </h3>
             <ul id="lista-shows-pasados"></ul> 
         </section>
 
+         <!-- Creamos los campos del formulario de contacto -->
+
         <section id="contacto">
-            <h2 data-section="contact-title"> Ponete en contacto </h2>
-            <form id="contact-form">
+            <h2 data-section="contacto-titulo"> Ponete en contacto </h2>
+            <form id="contacto-formulario">
                 <div class="form-group">
                     <label for="motivo" data-section="label-reason"> Motivo: </label>
                     <select id="motivo" name="motivo">
-                        <option value="show" data-section="opt-show"> Contrataciones </option>
+                        <option value="contrataciones" data-section="opt-contrataciones"> Contrataciones </option>
                         <option value="consultas" data-section="opt-consultas"> Consultas </option>
-                        <option value="otro" data-section="opt-other"> Otro </option>
+                        <option value="otros" data-section="opt-otros"> Otros </option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="nombre" data-section="label-name"> Nombre: </label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Paul" required>
+                    <input type="text" id="nombre" name="nombre" placeholder="Paul McCartney" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email" data-section="label-email"> Correo: </label>
-                    <input type="email" id="email" name="email" placeholder="Ej: john@apple.com" required>
+                    <input type="email" id="email" name="email" placeholder="John@apple.com" required>
                 </div>
 
                 <div class="form-group">
@@ -81,15 +88,23 @@
                 </div>
 
                 <button type="submit" id="btn-enviar" data-section="btn-send"> Enviar </button>
-            </form>
-        </section>
-    </main>
+        </form>
+    </section>
+</main>
 
-    <footer>
-        <p> &copy; 2026 - Beatles One - Tributo Beatle </p>
-    </footer>
+  <footer>   
+    <!-- Creamos un pie de página con las redes de la banda -->
 
-    <script src="assets/script.js"></script>
+    <p> © 2026 - Beatles One - Tributo Beatle </p> 
+        <div class="redes">
+            <a href="https://www.instagram.com/beatles.one" target="_blank"><img src="assets/img/instagram.png" alt="instagram"></a>
+            <a href="https://www.facebook.com/beatlesone" target="_blank"><img src="assets/img/facebook.png" alt="facebook"></a>
+            <a href="https://www.youtube.com/@beatlesone" target="_blank"><img src="assets/img/youtube.png" alt="youtube"></a>
+        </div>
 
-</body>
+  </footer>
+         <!-- Cargamos el script -->
+      <script src="assets/script.js"></script>
+
+ </body>
 </html>

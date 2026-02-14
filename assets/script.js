@@ -183,10 +183,10 @@ const crearLi = (show, esPasado) => {
 
         <div class="show-actions">
             ${esPasado 
-                ? `<span class="btn-ticket" style="opacity: 0.5; cursor: default;">${idiomaActual === "es" ? "Finalizado" : "Finished"}</span>` 
+                ? `` 
                 : (esEventoPrivado 
                     ? "" 
-                    : `<a href="#" class="btn-ticket">${idiomaActual === "es" ? "Reservar" : "Tickets"}</a>`
+                    : `<a href="#" class="btn-ticket">${idiomaActual === "es" ? "RESERVAR" : "TICKETS"}</a>`
                   )
             }
         </div>

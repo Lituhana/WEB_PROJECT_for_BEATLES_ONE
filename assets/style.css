@@ -3,10 +3,11 @@
 
 :root {
     --negro: #0a0a0a;
-    --blanco-hueso: #f5f5dc;
-    --verde-apple: #a3d977;
-    --gris-oscuro: #1a1a1a;
-    --gris-medio: #333;
+    --blanco: #ffffff;
+    --verde: #a3d977;
+    --beige: #f0ead2;
+    --gris-oscuro: #333333;
+    --gris-claro: #6b6b6b;
 }
 
 /* RESET Y ESTRUCTURA BASE */
@@ -26,7 +27,7 @@ body {
     font-family: 'Georgia', serif;
     font-style: normal;
     color: #f5f5f5;
-    background-color: var(--gris-oscuro);
+    background-color: var(--negro);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -76,7 +77,7 @@ header {
 
 #language-switcher button {
     background: none;
-    border: 2px solid var(--gris-medio);
+    border: 2px solid var(--gris-oscuro);
     font-size: 1.3rem;
     cursor: pointer;
     padding: 5px 12px;
@@ -85,8 +86,8 @@ header {
 }
 
 #language-switcher button:hover {
-    background-color: var(--verde-apple);
-    border-color: var(--verde-apple);
+    background-color: var(--verde);
+    border-color: var(--verde);
     transform: scale(1.05);
 }
 
@@ -106,7 +107,7 @@ nav ul {
 
 nav a {
     display: block;
-    color: var(--blanco-hueso);
+    color: var(--blanco);
     text-decoration: none;
     text-transform: uppercase;
     font-size: 0.85rem;
@@ -124,15 +125,15 @@ nav a {
 }
 
 nav a:hover {
-    background-color: var(--gris-medio);
-    color: var(--verde-apple);
+    background-color: var(--gris-oscuro);
+    color: var(--verde);
 }
 
 nav a.active-link {
     background-color: var(--negro) !important;
-    color: var(--blanco-hueso) !important;
-    border-color: var(--verde-apple);
-    border-bottom: 3px solid var(--gris-oscuro);
+    color: var(--blanco) !important;
+    border-color: var(--verde);
+    border-bottom: 3px solid var(--negro);
     margin-bottom: -3px;
     font-weight: 700;
 }
@@ -160,6 +161,31 @@ main section.active {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* ========== SECCIÓN NOSOTROS ========== */
+#nosotros {
+    text-align: center;
+}
+
+#nosotros h1 {
+    margin-bottom: 30px;
+    color: var(--blanco);
+}
+
+#nosotros p {
+    margin-top: 30px;
+    color: var(--blanco);
+    font-size: 1.1rem;
+}
+
+#nosotros img {
+    max-width: 600px;
+    width: 90%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
 /* ========== SECCIÓN INICIO (Hero) ========== */
 #inicio {
     text-align: center;
@@ -182,22 +208,25 @@ main section.active {
     height: auto;
     margin-bottom: 15px;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.6));
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .hero-logo:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px rgba(163, 217, 119, 0.6));
 }
 
 #inicio p {
     font-size: 1.3rem;
-    color: var(--verde-apple);
+    color: var(--verde);
 }
 
-/* Importamos Crimson Text para una estética más prolija en los números */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
-
 /* ========== SECCIÓN SHOWS (Cuadrados Perfectos) ========== */
+
+#shows h2, #shows h3 {
+    color: var(--blanco);
+    margin-bottom: 25px;
+}
 
 #lista-shows-proximos, 
 #lista-shows-pasados {
@@ -211,10 +240,10 @@ main section.active {
 
 .show-card {
     display: flex;
-    background-color: var(--blanco-hueso);
+    background-color: var(--beige);
     border-radius: 8px;
     overflow: hidden;
-    min-height: 100px; /* Altura base */
+    min-height: 100px;
     transition: transform 0.2s ease;
     border: none;
 }
@@ -226,7 +255,7 @@ main section.active {
 
 /* EL CUADRADO DE LA FECHA (Uniforme lado x lado) */
 .show-date-box {
-    background-color: var(--verde-apple);
+    background-color: var(--verde);
     color: var(--negro);
     /* Estas líneas aseguran el cuadrado perfecto */
     height: 100px; 
@@ -288,14 +317,22 @@ main section.active {
 
 .show-card.pasado {
     opacity: 0.5;
-    filter: grayscale(1);
+    filter: grayscale(100%);
     cursor: default;
-    transform: none !important; /* Desactiva cualquier movimiento */
+    transform: none !important;
 }
 
 .show-card.pasado .show-date-box {
-    background-color: var(--gris-medio);
-    color: var(--gr);
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+}
+
+.show-card.pasado .show-content {
+    color: var(--negro);
+}
+
+.show-card.pasado .show-city {
+    color: #444;
 }
 
 /* BOTÓN */
@@ -315,6 +352,13 @@ main section.active {
     font-size: 0.85rem;
     font-family: 'Crimson Text', serif;
     text-transform: uppercase;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-ticket:hover {
+    background-color: var(--negro);
+    color: var(--beige);
 }
 /* ========== SECCIÓN CONTACTO ========== */
 #contacto {
@@ -324,7 +368,7 @@ main section.active {
 
 #contacto h2 {
     margin-bottom: 30px;
-    color: var(--blanco-hueso);
+    color: var(--blanco);
     text-align: center;
 }
 
@@ -336,7 +380,7 @@ main section.active {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: var(--blanco-hueso);
+    color: var(--blanco);
 }
 
 .form-group input,
@@ -344,12 +388,12 @@ main section.active {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 2px solid var(--gris-medio);
+    border: 2px solid var(--gris-oscuro);
     border-radius: 5px;
     font-size: 1rem;
     font-family: 'Georgia', serif;
     background-color: var(--negro);
-    color: var(--blanco-hueso);
+    color: var(--blanco);
     transition: border-color 0.3s ease;
 }
 
@@ -357,13 +401,13 @@ main section.active {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--verde-apple);
+    border-color: var(--verde);
 }
 
 #btn-enviar {
     width: 100%;
     padding: 15px;
-    background-color: var(--verde-apple);
+    background-color: var(--verde);
     color: var(--negro);
     border: none;
     border-radius: 5px;
@@ -376,7 +420,8 @@ main section.active {
 }
 
 #btn-enviar:hover {
-    background-color: var(--blanco-hueso);
+    background-color: var(--blanco);
+    color: var(--negro);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(163, 217, 119, 0.3);
 }
@@ -384,19 +429,44 @@ main section.active {
 /* ========== FOOTER ========== */
 footer {
     background-color: var(--negro);
-    color: var(--blanco-hueso);
-    text-align: center;
+    color: var(--blanco);
     padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+.redes {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.redes a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s ease;
+}
+
+.redes a img:hover {
+    transform: scale(1.1);
 }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
     header { flex-direction: column; align-items: stretch; }
-    #language-switcher { justify-content: center; padding: 15px 0; border-bottom: 1px solid var(--gris-medio); }
+    #language-switcher { justify-content: center; padding: 15px 0; border-bottom: 1px solid var(--gris-oscuro); }
     nav ul { flex-direction: column; width: 100%; }
-    nav a.active-link { border-left: 4px solid var(--verde-apple); margin-bottom: 0; }
+    nav a.active-link { border-left: 4px solid var(--verde); margin-bottom: 0; }
     
     .show-card { min-height: 80px; }
     .show-date-box { min-width: 85px; font-size: 0.8rem; }
     .show-actions { display: none; } /* En celu ocultamos el botón para que no se apriete todo */
+    
+    footer { flex-direction: column; gap: 15px; }
+    footer p { text-align: center; }
 }
